@@ -23,6 +23,7 @@ ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_ARMV7A := true
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+TARGET_BOARD_PLATFORM := rk31board
 TARGET_BOARD_HARDWARE := rk30board
 
 # Use a smaller subset of system fonts to keep image size lower
