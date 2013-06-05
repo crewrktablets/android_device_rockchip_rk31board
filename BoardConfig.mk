@@ -46,7 +46,7 @@ WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/rkwifi.ko"
 WIFI_DRIVER_MODULE_NAME     := "wlan"
 
 # Graphics
-BOARD_EGL_CFG := device/rockchip/rk30board/egl.cfg
+BOARD_EGL_CFG := device/rockchip/rk31board/egl.cfg
 USE_OPENGL_RENDERER := true
 #BOARD_USE_LEGACY_UI := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
