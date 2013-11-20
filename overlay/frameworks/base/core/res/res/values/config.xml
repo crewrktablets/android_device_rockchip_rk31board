@@ -54,6 +54,9 @@
         <item>"9,1"</item>
     </string-array>
 
+    <!-- Indicate whether the SD card is accessible without removing the battery. -->
+    <bool name="config_batterySdCardAccessibility">true</bool>
+
     <!-- If true, the direction rotation is applied to get to an application's requested
          orientation is reversed.  Normally, the model is that landscape is
          clockwise from portrait; thus on a portrait device an app requesting
