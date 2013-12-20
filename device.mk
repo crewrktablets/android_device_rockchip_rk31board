@@ -24,9 +24,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,device/rockchip/rk31board/prebuilt/etc,system/etc)
 
-# Copy prebuilt init.d
+# Copy prebuilt init.d scripts
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,device/rockchip/rk31board/prebuilt/etc/init.d,system/etc/init.d)
+
+# Copy prebuilt ppp files
+PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*,device/rockchip/rk31board/prebuilt/etc/ppp,system/etc/ppp)
+
+# Copy prebuilt usb_modeswitch.d files
+PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*,device/rockchip/rk31board/prebuilt/etc/usb_modeswitch.d,system/etc/usb_modeswitch.d)
+
 
 # Copy Vendor firmware
 PRODUCT_COPY_FILES += \
@@ -82,7 +91,8 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
         frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
         frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-        frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+        frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+        frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
 
 # Bluetooth
 BT_FIRMWARE_FILES := $(shell ls $(LOCAL_PATH)/bluetooth/firmware)
@@ -181,6 +191,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
 	charger \
 	charger_res_images
+
+# 3G
+PRODUCT_PACKAGES += \
+    rild \
+    chat    
+# End 3G
 
 # android core stuff
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)

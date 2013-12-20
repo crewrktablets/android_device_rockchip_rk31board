@@ -30,6 +30,11 @@ on early-init
 on fs
     #mount vfat mtd@user /mnt/sdcard wait noatime nodiratime  nosuid nodev uid=1000,gid=1015,fmask=0702,dmask=0702
 
+# Fix battery state
+    chown system system /sys/class/rk30_battery/rk30_battery_start_timer_work
+    chmod 0664 /sys/class/rk30_battery/rk30_battery_start_timer_work
+    write /sys/class/rk30_battery/rk30_battery_start_timer_work 1
+
 # AP6476 GPS permission
     chmod 777 /system/bin/glgps
     chown root system /system/bin/glgps
@@ -67,6 +72,7 @@ on boot
 
 #backlight
     chown system system /sys/class/backlight/rk28_bl/brightness
+    chown system system /sys/class/backlight/rk30_bl/brightness
 
 # permissions for bluetooth.
     mkdir /data/misc/bluetoothd 0775 bluetooth bluetooth
