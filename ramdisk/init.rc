@@ -132,8 +132,8 @@ on fs
 # mount mtd partitions
     mount ext4 mtd@system /system wait ro noatime nodiratime noauto_da_alloc
     start readahead
-    mount ext4 mtd@userdata /data wait noatime nodiratime nosuid nodev noauto_da_alloc
-    mount ext4 mtd@cache /cache wait noatime nodiratime nosuid nodev noauto_da_alloc
+    mount ext4 mtd@userdata /data wait noatime nodiratime discard nosuid nodev noauto_da_alloc
+    mount ext4 mtd@cache /cache wait noatime nodiratime discard nosuid nodev noauto_da_alloc
 
     insmod /system/lib/modules/ump.ko
     insmod /system/lib/modules/mali.ko mali_dvfs=50,100,133,160,200,266,400 mali_init_clock=50
