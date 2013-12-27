@@ -1,0 +1,7 @@
+#!/system/bin/sh
+/system/bin/alsa_amixer sset "ADC Boost Gain" "2"
+/system/bin/alsa_amixer sset "IN" "31"
+/system/bin/alsa_amixer sset "IN1 Boost" "4"
+/system/bin/alsa_amixer sset "IN2 Boost" "4"
+/system/bin/alsa_amixer sset "LOUT MIX DAC L1" "on"
+/system/bin/alsa_amixer sset "LOUT MIX DAC R1" "on"
