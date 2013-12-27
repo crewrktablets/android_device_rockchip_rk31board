@@ -109,7 +109,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
         persist.sys.language=de \
         persist.sys.country=DE \
         ro.sf.lcd_density=160 \
-        ro.kernel.android.checkjni=1 \
+        ro.kernel.android.checkjni=0 \
         persist.sys.ui.hw=true \
         opengl.vivante.texture=1 \
         ro.opengles.version=131072 \
@@ -190,13 +190,21 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # charger
 PRODUCT_PACKAGES += \
 	charger \
-	charger_res_images
+#	charger_res_images
+
+# Copy other charger images
+PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*,device/rockchip/rk31board/ramdisk/res/images/charger,root/res/images/charger)
 
 # 3G
 PRODUCT_PACKAGES += \
     rild \
     chat    
 # End 3G
+
+ifeq ($(strip $(TARGET_CHIP_MTK)),true)
+    include device/rockchip/rk31board/prebuilt_mtk/rk31_mtk.mk
+endif
 
 # android core stuff
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
